@@ -32,7 +32,6 @@ fs.readFile('./www/index.html', 'utf8' , (err, data) => {
       server.listen(port, () => {
         console.log(`Server running on port ${port}`)
       })
-    console.log(data)
   })
 
 // Define a const `server` as an arrow function using http.createServer. 
