@@ -19,6 +19,11 @@ const port = args.port || process.env.PORT || 3000
 // Do not be nice about exiting.
 
 fs.readFile('./www/index.html', 'utf8' , (err, data) => {
+  if (err) {
+    console.error(err)
+    return
+    process.exit(1)
+  }
     const server = http.createServer((req, res) => {
         res.statusCode = 200
         res.setHeader('Content-Type', 'text/html')
@@ -27,10 +32,6 @@ fs.readFile('./www/index.html', 'utf8' , (err, data) => {
       server.listen(port, () => {
         console.log(`Server listening on port ${port}`)
       })
-    if (err) {
-      console.error(err)
-      return 1
-    }
     console.log(data)
   })
 
